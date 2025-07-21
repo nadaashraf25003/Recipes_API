@@ -179,6 +179,20 @@ async function getRecipeDetails(id) {
     // mealsCount.textContent = 1;
     // section_title.innerHTML = `${recipe.strMeal} Meal`;
     // recipeDetailsByName.innerHTML = "";
+    // Extract ingredients and measurements
+    const ingredients = [];
+    for (let i = 1; i <= 20; i++) {
+      if (
+        recipe[`strIngredient${i}`] &&
+        recipe[`strIngredient${i}`].trim() !== ""
+      ) {
+        ingredients.push({
+          ingredient: recipe[`strIngredient${i}`],
+          measure: recipe[`strMeasure${i}`],
+        });
+      }
+    }
+
     recipeDetails.innerHTML = `
  <div class="card">
  <div class="sec">
@@ -188,14 +202,32 @@ async function getRecipeDetails(id) {
         <p>The Name of "${recipe.idMeal}": <span>${recipe.strMeal}</span></p>
         <p>Area: <span>${recipe.strArea}</span></p>
         <p>Category <span>${recipe.strCategory}</span> </p>
-        <button><a href="${recipe.strYoutube}" target="_blank" ><i class="fa-brands fa-youtube"></i> Watch on YouTube</a></button>
-        <button><a href="${recipe.strYoutube}" target="_blank" >The Source</a></button>
+        <button><a href="${
+          recipe.strYoutube
+        }" target="_blank" ><i class="fa-brands fa-youtube"></i> Watch on YouTube</a></button>
+        <button><a href="${
+          recipe.strYoutube
+        }" target="_blank" >The Source</a></button>
       </div>
   </div>
   <div class="sec">
-           
-  <div>
-     <h4>Instructions:</h4>
+           <div class="ingredients">
+                            <h3 class="sub-title">Ingredients: </h3>
+                            <ul class="ingredient-list">
+                                ${ingredients
+                                  .map(
+                                    (item) => `
+                                    <li>
+                                        <span>${item.ingredient}</span>
+                                        <span>${item.measure}</span>
+                                    </li>
+                                `
+                                  )
+                                  .join("")}
+                            </ul>
+                        </div>
+  <div class="instruction">
+     <h3 class="sub-title">Instructions:</h3>
      <p class="instructions">${recipe.strInstructions}</p>
               
   </div>
