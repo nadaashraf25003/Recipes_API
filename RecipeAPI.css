@@ -329,11 +329,11 @@ main .title span {
   justify-content: center;
   align-items: center;
   transition: var(--transition);
-  scale : 0.1;
+  scale: 0.1;
 }
 #recipeDetails.active {
   top: 0;
-   scale : 1;
+  scale: 1;
 }
 #recipeDetails .card {
   display: flex;
@@ -355,6 +355,7 @@ main .title span {
   margin-bottom: 20px;
   position: relative;
 }
+
 #recipeDetails .card img {
   width: 50%;
   height: 250px;
@@ -381,12 +382,16 @@ main .title span {
 #recipeDetails .card button {
   margin-top: 1rem;
 }
-#recipeDetails .card .instructions {
+#recipeDetails .card .instruction,
+.ingredients {
+  width: 50%;
+  align-self: flex-end;
   max-height: 300px; /* Adjust height as needed */
   overflow-y: auto; /* Vertical scroll if content overflows */
   padding-right: 10px;
   font-size: 0.8rem;
 }
+
 #recipeDetails #close_btn_details {
   position: absolute;
   right: 0%;
@@ -395,6 +400,28 @@ main .title span {
   padding: 0.2rem 0.6rem;
   color: var(--white);
   transition: var(--transition);
+}
+
+.sub-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  font-weight: 700;
+}
+
+.ingredient-list {
+  list-style-type: none;
+}
+
+.ingredient-list li {
+  padding: 12px 0;
+  border-bottom: 1px dashed #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
 }
 
 /* Cards end  */
