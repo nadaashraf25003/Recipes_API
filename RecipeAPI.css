@@ -479,7 +479,7 @@ footer ul a:hover {
     flex-direction: column;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 780px) {
   body {
     margin: 0;
   }
@@ -555,10 +555,19 @@ footer ul a:hover {
    #recipeDetails .card {
   max-height: 100%;
 }
+
 #recipeDetails .card button{
   font-size: 0.7rem;
   padding: 8px;
 
 }
-}
+#recipeDetails .card p {
+  font-size: 0.7rem;
+  font-weight: 400;
 
+}
+#recipeDetails .card p span {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+}
