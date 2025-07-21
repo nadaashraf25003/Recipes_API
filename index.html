@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="RecipeAPI.css" />
+  <title>Recipes API</title>
+  <link rel="icon" href="../imges/recipe.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <header>
+    <div class="title">
+      <h1><i class="fas fa-utensils" style="color: var(--second);"></i>  Recipes <span class="api">API</span></h1>
+      <button onclick="addToFavoritePage()">Favorites<i class="fa-solid fa-heart"></i><span
+          id="fav_btn-count"></span></button>
+      <button id="Fav_btn" onclick="addToFavoritePage()"><i class="fa-solid fa-heart"></i></button>
+    </div>
+    <div class="controls">
+      <div class="form-group">
+        <i class="fas fa-list"></i>
+        <select id="select_category">
+          <option value="">Select a category</option>
+        </select>
+      </div>
+      <div class="search-container">
+        <input type="text" id="searchName" placeholder="Search for a recipe...">
+        <button type="submit" id="searchBtn">Search</button>
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+    <div class="title">
+      <h2 class="section-title">Discover Delicious Recipes</h2>
+      <span>There is about <span id="mealsCount">0</span> Meals</span>
+    </div>
+    <div id="recipesContainer">
+      <h3 style="color: var(--second);">Search about your Favorite Recipe</h3>
+    </div>
+  </main>
+
+  <div id="recipeDetails">
+  </div>
+
+
+  <div id="favorites"></div>
+
+  <footer>
+    <h1>Recipes <span class="api">API</span></h1>
+    <p>Discover thousands of delicious recipes from around the world</p>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/nada-ashraf-386223287/"><i class="fa-brands fa-linkedin"></i></a></li>
+      <li><a href="https://github.com/nadaashraf25003"><i class="fa-brands fa-square-github"></i></a></li>
+      <li><a href="https://www.instagram.com/nada_ashraf252003/?__pwa=1"><i
+            class="fa-brands fa-square-instagram"></i></i></a></li>
+    </ul>
+    <p>Nada Ashraf <span class="api">2025</span> </p>
+  </footer>
+
+  <script src="RecipeAPI.js"></script>
+</body>
+
+</html>
