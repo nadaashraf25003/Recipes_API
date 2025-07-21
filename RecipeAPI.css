@@ -504,17 +504,16 @@ footer ul a:hover {
     justify-content: center;
   }
   #recipeDetails .card {
-  padding: 10px;
-  width: 80%;
-  max-height: 100%;
-}
-#recipeDetails .card .instruction,
-.ingredients {
-  width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
+    padding: 10px;
+    width: 80%;
+    max-height: 100%;
+  }
+  #recipeDetails .card .instruction,
+  .ingredients {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 
 @media (max-width: 530px) {
@@ -529,9 +528,22 @@ footer ul a:hover {
     display: block;
   }
   #recipeDetails .card {
-  padding: 5px;
-  max-height: 100%;
-}
+    padding: 5px;
+    max-height: 90%;
+  }
+
+  #recipeDetails .card button {
+    font-size: 0.7rem;
+    padding: 8px;
+  }
+  #recipeDetails .card p {
+    font-size: 0.7rem;
+    font-weight: 400;
+  }
+  #recipeDetails .card p span {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
 }
 @media (max-width: 430px) {
   header {
@@ -552,22 +564,7 @@ footer ul a:hover {
   .section-title {
     font-size: 1.8rem;
   }
-   #recipeDetails .card {
-  max-height: 100%;
-}
 
-#recipeDetails .card button{
-  font-size: 0.7rem;
-  padding: 8px;
 
-}
-#recipeDetails .card p {
-  font-size: 0.7rem;
-  font-weight: 400;
-
-}
-#recipeDetails .card p span {
-  font-size: 0.8rem;
-  font-weight: 400;
-}
+ 
 }
