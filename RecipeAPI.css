@@ -510,7 +510,7 @@ footer ul a:hover {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 530px) {
   header .title button {
     display: none;
   }
@@ -522,7 +522,7 @@ footer ul a:hover {
     display: block;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 430px) {
   header {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -531,6 +531,7 @@ footer ul a:hover {
     display: inline;
     padding: 0 1rem;
     margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   #searchName {
