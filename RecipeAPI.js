@@ -12,7 +12,6 @@ let main_title = document.querySelector("main .title");
 let Fav_btn = document.getElementById("Fav_btn");
 let fav_btn_count = document.getElementById("fav_btn-count");
 let Click_fav = document.getElementById("Click_fav");
-// let recipeDetailsByName = document.getElementById("recipeDetailsByName");
 
 // List all meal categories
 async function getCategories() {
@@ -52,28 +51,25 @@ async function searchMealbyName(searchValue) {
 
     meals.forEach((meal) => {
       let div = document.createElement("div");
-      // div.className = "col-md-3";
       div.innerHTML = `
-    <div class="card">
-    <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
-    <button id="Click_fav"><i class="fa-solid fa-heart"></i></button>
-    <div class="card-body">
-    <h5 class="card-title">${meal.strMeal}</h5>
-    <button onclick="getRecipeDetails('${meal.idMeal}')">View Details</button>
-        <button id="Click_fav" onclick="addTofavoritesLocalStorage('${meal.idMeal}')"><i class="fa-solid fa-heart"></i></button>
-
-    </div>
-    </div>
+        <div class="card">
+          <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+          <button id="Click_fav"><i class="fa-solid fa-heart"></i></button>
+          <div class="card-body">
+            <h5 class="card-title">${meal.strMeal}</h5>
+            <button onclick="getRecipeDetails('${meal.idMeal}')">View Details</button>
+            <button id="Click_fav" onclick="addTofavoritesLocalStorage('${meal.idMeal}')"><i class="fa-solid fa-heart"></i></button>
+          </div>
+        </div>
             `;
       recipesContainer.appendChild(div);
     });
   } else {
-    main_title.innerHTML = "";
     recipesContainer.innerHTML = "";
     recipeDetails.innerHTML = "";
-    section_title.innerHTML = "";
-    mealsCount.textContent = "";
-    recipeDetails.innerHTML = `<h3 class="card-error">Your Search did not return any results</h3>`;
+    section_title.innerHTML = "Nothing from ";
+    mealsCount.textContent = 0;
+    recipesContainer.innerHTML = `<h3 class="card-error">Your Search did not return any results</h3>`;
   }
 }
 
@@ -96,26 +92,25 @@ async function searchMealbyFirstLetter(searchValue) {
     section_title.innerHTML = `All Meals that Start with '${searchValue}'`;
     meals.forEach((meal) => {
       let div = document.createElement("div");
-      // div.className = "col-md-3";
       div.innerHTML = `
-    <div class="card">
-    <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
-    <i class="fa-solid fa-heart"  id="Click_fav"></i>
-    <div class="card-body">
-    <h5 class="card-title">${meal.strMeal}</h5>
-    <button onclick="getRecipeDetails('${meal.idMeal}')">Details</button>
-    <button id="Click_fav" onclick="addTofavoritesLocalStorage('${meal.idMeal}')"><i class="fa-solid fa-heart"></i></button>
-    </div>
+        <div class="card">
+          <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+          <i class="fa-solid fa-heart"  id="Click_fav"></i>
+          <div class="card-body">
+            <h5 class="card-title">${meal.strMeal}</h5>
+            <button onclick="getRecipeDetails('${meal.idMeal}')">Details</button>
+            <button id="Click_fav" onclick="addTofavoritesLocalStorage('${meal.idMeal}')"><i class="fa-solid fa-heart"></i></button>
+          </div>
+        </div>
       `;
       recipesContainer.appendChild(div);
     });
   } else {
-    main_title.innerHTML = "";
     recipesContainer.innerHTML = "";
     recipeDetails.innerHTML = "";
-    section_title.innerHTML = "";
-    mealsCount.textContent = "";
-    recipeDetails.innerHTML = `<h3 class="card-error">Your Search did not return any results</h3>`;
+    section_title.innerHTML = "Nothing from ";
+    mealsCount.textContent = 0;
+    recipesContainer.innerHTML = `<h3 class="card-error">Your Search did not return any results</h3>`;
   }
 }
 
@@ -142,22 +137,21 @@ async function getRecipes(selectedValue) {
       // recipeCard.classList.add("recipe-card");
       recipeCard.innerHTML = `
     <div class="card">
-    <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
-    <div class="card-body">
-    <h5 class="card-title">${recipe.strMeal}</h5>
-    <button onclick="getRecipeDetails('${recipe.idMeal}')">View Details</button>
-    <button id="Click_fav" onclick="addTofavoritesLocalStorage('${recipe.idMeal}')"><i class="fa-solid fa-heart"></i></button>
-
+      <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
+      <div class="card-body">
+        <h5 class="card-title">${recipe.strMeal}</h5>
+        <button onclick="getRecipeDetails('${recipe.idMeal}')">View Details</button>
+        <button id="Click_fav" onclick="addTofavoritesLocalStorage('${recipe.idMeal}')"><i class="fa-solid fa-heart"></i></button>
+      </div>
     </div>`;
       recipesContainer.appendChild(recipeCard);
     });
   } else {
-    main_title.innerHTML = "";
     recipesContainer.innerHTML = "";
     recipeDetails.innerHTML = "";
-    section_title.innerHTML = "";
-    mealsCount.textContent = "";
-    recipeDetails.innerHTML = `<h3 class="card-error">Your Search did not return any results</h3>`;
+    section_title.innerHTML = "Nothing from ";
+    mealsCount.textContent = 0;
+    recipesContainer.innerHTML = `<h3 class="card-error">Your Search did not return any results</h3>`;
   }
 }
 
@@ -171,7 +165,6 @@ async function getRecipeDetails(id) {
   console.log(recipe);
   if (recipe) {
     recipeDetails.classList.add("active");
-
     // favorites.innerHTML = "";
     // recipesContainer.innerHTML = "";
     // recipeDetails.innerHTML = "";
@@ -194,65 +187,61 @@ async function getRecipeDetails(id) {
     }
 
     recipeDetails.innerHTML = `
- <div class="card">
- <div class="sec">
-      <button id="close_btn_details"><i class="fa-solid fa-circle-xmark"></i></button>
-      <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
-      <div>
-        <p>The Name of "${recipe.idMeal}": <span>${recipe.strMeal}</span></p>
-        <p>Area: <span>${recipe.strArea}</span></p>
-        <p>Category <span>${recipe.strCategory}</span> </p>
-        <button><a href="${
-          recipe.strYoutube
-        }" target="_blank" ><i class="fa-brands fa-youtube"></i> Watch on YouTube</a></button>
-        <button><a href="${
-          recipe.strYoutube
-        }" target="_blank" >The Source</a></button>
-      </div>
-  </div>
-  <div class="sec">
-           <div class="ingredients">
-                            <h3 class="sub-title">Ingredients: </h3>
-                            <ul class="ingredient-list">
-                                ${ingredients
-                                  .map(
-                                    (item) => `
-                                    <li>
-                                        <span>${item.ingredient}</span>
-                                        <span>${item.measure}</span>
-                                    </li>
-                                `
-                                  )
-                                  .join("")}
-                            </ul>
-                        </div>
-  <div class="instruction">
-     <h3 class="sub-title">Instructions:</h3>
-     <p class="instructions">${recipe.strInstructions}</p>
-              
-  </div>
-
-</div>
-</div>    
+      <div class="card">
+        <div class="sec">
+          <button id="close_btn_details"><i class="fa-solid fa-circle-xmark"></i></button>
+          <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
+          <div>
+            <p>The Name of "${recipe.idMeal}": <span>${recipe.strMeal}</span></p>
+            <p>Area: <span>${recipe.strArea}</span></p>
+            <p>Category <span>${recipe.strCategory}</span> </p>
+            <button><a href="${
+              recipe.strYoutube
+            }" target="_blank" ><i class="fa-brands fa-youtube"></i> Watch on YouTube</a></button>
+            <button><a href="${
+              recipe.strYoutube
+            }" target="_blank" >The Source</a></button>
+          </div>
+        </div>
+        <div class="sec">
+          <div class="ingredients">
+            <h3 class="sub-title">Ingredients: </h3>
+            <ul class="ingredient-list">
+                ${ingredients
+                  .map(
+                    (item) => `
+                    <li>
+                        <span>${item.ingredient}:</span>
+                        <span>${item.measure}</span>
+                    </li>
+                `
+                  )
+                  .join("")}
+            </ul>
+          </div>
+          <div class="instruction">
+            <h3 class="sub-title">Instructions:</h3>
+            <p class="instructions">${recipe.strInstructions}</p>        
+          </div>
+        </div>
+      </div>    
     `;
   } else {
-    main_title.innerHTML = "";
-    recipesContainer.innerHTML = "";
+     recipesContainer.innerHTML = "";
     recipeDetails.innerHTML = "";
-    section_title.innerHTML = "";
-    mealsCount.textContent = "";
-    recipeDetails.innerHTML = `<h3 class="card-error">Your Search did not return any results</h3>`;
+    section_title.innerHTML = "Nothing from ";
+    mealsCount.textContent = 0;
+    recipesContainer.innerHTML = `<h3 class="card-error">Your Search did not return any results</h3>`;
   }
 }
 
 // Trigger recipes loading when a new category is selected
 select_category.addEventListener("change", function () {
   let selectedValue = select_category.value;
-  //   console.log("Selected category:", selectedValue);
   getRecipes(selectedValue);
 });
 
-// Search for meals by name
+// Search for meals by name and first letter
 searchBtn.addEventListener("click", function () {
   let searchValue = searchName.value;
   if (searchValue.length === 1) {
@@ -317,8 +306,9 @@ function removeFromFav(mealId) {
   localStorage.removeItem(mealId);
   alert("Removed from favorites.");
   addToFavoritePage();
-  // Fav_btn.click(); // Refresh the favorites view
 }
+
+
 
 // for close recipe details page
 recipeDetails.addEventListener("click", function () {
