@@ -581,3 +581,13 @@ footer ul a:hover {
     font-size: 1.8rem;
   }
 }
+
+@media (max-width: 380px) {
+  #searchName {
+    display: flex;
+    max-width: 130%;
+  }
+  #searchBtn {
+    width: 80%;
+  }
+}
