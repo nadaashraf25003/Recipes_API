@@ -264,7 +264,7 @@ function addToFavoritePage() {
   favorites.innerHTML = "";
   fav_btn_count.innerHTML = localStorage.length;
   mealsCount.textContent = localStorage.length;
-  section_title.innerHTML = `Your Favourite Meals`;
+  section_title.innerHTML = `Your Favorite Meals`;
   if (localStorage.length === 0) {
     recipeDetails.innerHTML = `<h3 class="card-error">You have not added any meals to your favourites</h3>`;
   } else {
