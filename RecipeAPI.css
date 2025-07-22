@@ -226,7 +226,9 @@ main .title span {
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: relative;
+  height: 100%;
 }
 
 #recipesContainer .card:hover,
@@ -503,7 +505,7 @@ footer ul a:hover {
   #recipeDetails .card img {
     width: 80%;
     height: 70%;
-    margin-top: 30%;
+    margin-top: 20%;
   }
 }
 @media (max-width: 780px) {
@@ -555,7 +557,7 @@ footer ul a:hover {
     font-weight: 400;
   }
 
-    #recipeDetails .card img {
+  #recipeDetails .card img {
     margin-top: 60%;
   }
 }
