@@ -502,7 +502,7 @@ footer ul a:hover {
   #recipeDetails .card img {
     width: 80%;
     height: 70%;
-    margin-top: 60%;
+    margin-top: 30%;
   }
 }
 @media (max-width: 780px) {
@@ -552,6 +552,10 @@ footer ul a:hover {
   #recipeDetails .card p span {
     font-size: 0.8rem;
     font-weight: 400;
+  }
+
+    #recipeDetails .card img {
+    margin-top: 60%;
   }
 }
 @media (max-width: 430px) {
