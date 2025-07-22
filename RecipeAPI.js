@@ -286,7 +286,7 @@ function addToFavoritePage() {
     }
   }
 }
- localStorage.clear();
+// localStorage.clear();
 
 async function addTofavoritesLocalStorage(mealId) {
   const response = await fetch(
