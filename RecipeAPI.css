@@ -492,13 +492,13 @@ footer ul a:hover {
     align-items: stretch;
     gap: 1rem;
   }
+  .search-container {
+  max-width: 450px;
+}
 }
 @media (max-width: 900px) {
     body {
   margin: 0 6rem;
-}
-.search-container {
-  max-width: 450px;
 }
   main .title {
     display: flex;
