@@ -431,7 +431,10 @@ main .title span {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px dashed #ccc;
-  padding: 0.4rem 0;
+  padding: 0.4rem 0.3rem;
+  margin-bottom: 1rem;
+  background-color: #f9daa9;
+  border-radius: 5px;
 }
 
 /* Close Button */
