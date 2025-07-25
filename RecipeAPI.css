@@ -141,7 +141,7 @@ header .title button:hover i {
 }
 
 #searchName {
-  flex: 1;
+  flex: 2;
   padding: 12px 15px;
   border: none;
   font-size: 1rem;
@@ -494,8 +494,11 @@ footer ul a:hover {
   }
 }
 @media (max-width: 900px) {
-      body {
+    body {
   margin: 0 6rem;
+}
+.search-container {
+  max-width: 300px;
 }
   main .title {
     display: flex;
@@ -505,10 +508,6 @@ footer ul a:hover {
   header .title button {
     display: none;
   }
-
-  /* #searchName {
-    padding: 0.8rem;
-  } */
   #Fav_btn {
     display: block;
   }
@@ -533,7 +532,6 @@ footer ul a:hover {
     justify-content: center;
     flex-direction: column;
   }
-
   .search-container {
     flex-direction: column;
    width: 15rem;
