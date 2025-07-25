@@ -494,6 +494,9 @@ footer ul a:hover {
   }
 }
 @media (max-width: 900px) {
+      body {
+  margin: 0 6rem;
+}
   main .title {
     display: flex;
     justify-content: center;
@@ -530,8 +533,7 @@ footer ul a:hover {
     justify-content: center;
     flex-direction: column;
   }
-}
-@media (max-width: 780px) {
+
   .search-container {
     flex-direction: column;
    width: 15rem;
